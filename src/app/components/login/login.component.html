@@ -1,0 +1,28 @@
+<form #f="ngForm" (submit)="verify(f)" >
+<div class="container w-75 d-flex justify-content-center">
+    <div class="card mt-5 text-center" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title">LOGIN</h5>
+          <div class="input-group input-group-sm mb-3">
+            <span class="input-group-text" >Username: </span>
+            <input #user="ngModel"  type="text" class="form-control" name="username" (input)="hidenError()" ngModel required>
+                       
+        </div>
+        <div *ngIf="user.touched && user.invalid && user.hasError">
+            <div *ngIf="user.errors"><p class="text-sm-start text-danger">Username required</p></div>
+        </div>
+          <div class="input-group input-group-sm mb-3">
+            <span class="input-group-text" >Password : </span>
+            <input #pwd="ngModel" type="password" class="form-control" name="password" ngModel required>
+          </div>
+          <div *ngIf="pwd.touched && pwd.invalid && pwd.hasError">
+            <div *ngIf="pwd.errors"><p class="text-sm-start text-danger">Password required</p></div>
+        </div>
+          <p class="text-sm-start text-danger" *ngIf="error">{{errorMessage}}</p>
+          <div class="d-flex justify-content-end">
+            <button [disabled]="f.invalid" type="submit" class="btn btn-primary" >LOGIN</button>
+          </div>
+        </div>
+      </div>
+</div>
+</form>

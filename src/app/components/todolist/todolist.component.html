@@ -1,0 +1,72 @@
+<p class="">TODOLIST of {{user.name}}</p>
+<button class="btn btn-info">Doing</button>
+<div class="over">
+    <table class="table table-striped text-center">
+        <thead>
+            <tr>
+                <th scope="col ">Cate</th>
+                <th scope="col">Status</th>
+                <th scope="col" class="w-50">Todo</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let do of todos;index as i">
+                <th scope="row"><button (click)="changeCate(do)" class={{getCateClass(do.cate)}}>{{do.cate}}</button>
+                </th>
+                <td><button (click)="changeStatus(do)"
+                        class={{getStatusClass(do.status)}}>{{do.status?"ING":"DONE"}}</button></td>
+                <ng-component *ngIf="!do.edieable;then thenBlock;else elseBlock" ></ng-component>
+                <ng-template #thenBlock>
+                    <td>{{do.detail}}</td>
+                    <td><button (click)="modifyTodo(do)" class="btn btn-warning">Modify</button>
+                        <button (click)="deleteTodo(do.id)" class="btn btn-danger">Delete</button>
+                    </td>
+                </ng-template>
+                <ng-template #elseBlock>
+                    <td><input [(ngModel)]="do.detail" type="text"></td>
+                    <td><button (click)="confirmModify(do)" class="btn btn-info">Ok</button>
+                        <button (click)="cancel(do)" class="btn btn-danger">Cancel</button>
+                    </td>
+                </ng-template>
+            </tr>
+
+        </tbody>
+    </table>
+</div>
+<button class="btn btn-warning">Done</button>
+<div class="over">
+
+    <table class="table table-striped text-center">
+        <thead>
+            <tr>
+                <th scope="col ">Cate</th>
+                <th scope="col">Status</th>
+                <th scope="col" class="w-50">Todo</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let do of todosFini;index as i">
+                <th scope="row"><button (click)="changeCate(do)" class={{getCateClass(do.cate)}}>{{do.cate}}</button>
+                </th>
+                <td><button (click)="changeStatus(do)"
+                        class={{getStatusClass(do.status)}}>{{do.status?"ING":"DONE"}}</button></td>
+                        <ng-component *ngIf="!do.edieable;then thenBlockDone;else elseBlockDone" ></ng-component>
+                        <ng-template #thenBlockDone>
+                            <td>{{do.detail}}</td>
+                            <td><button (click)="modifyTodo(do)" class="btn btn-warning">Modify</button>
+                                <button (click)="deleteTodo(do.id)" class="btn btn-danger">Delete</button>
+                            </td>
+                        </ng-template>
+                        <ng-template #elseBlockDone>
+                            <td><input [(ngModel)]="do.detail" type="text"></td>
+                            <td><button (click)="confirmModify(do)" class="btn btn-info">Ok</button>
+                                <button (click)="cancel(do)" class="btn btn-danger">Cancel</button>
+                            </td>
+                        </ng-template>
+            </tr>
+
+        </tbody>
+    </table>
+</div>

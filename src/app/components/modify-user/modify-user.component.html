@@ -1,0 +1,38 @@
+<form #modifyF="ngForm" (submit)="ModifyUser(modifyF)">
+    <div class="card" style="width: 18rem;">
+        <div class="card-body">
+            <h5 class="card-title">Modify</h5>
+            <div class="input-group input-group-sm mb-3">
+                <span class="input-group-text">Username: </span>
+                <input #newUser="ngModel" type="text" class="form-control" name="username" [value]="user.name" ngModel >
+            </div>
+            <div *ngIf="newUser.touched && newUser.invalid && newUser.hasError">
+                <div *ngIf="newUser.errors">Username required</div>
+            </div>
+
+            <div class="input-group input-group-sm mb-3">
+                <span class="input-group-text">Password: </span>
+                <input #newPwd="ngModel" type="text" class="form-control" name="pwd" [value]="user.pwd" ngModel >
+            </div>
+            <div *ngIf="newPwd.touched && newPwd.invalid && newPwd.hasError">
+                <div *ngIf="newPwd.errors">Password required</div>
+            </div>
+
+            <div class="input-group input-group-sm mb-3">
+                <span class="input-group-text">Role: </span>
+                <select #newRole="ngModel" name="role" [value]="user.role" ngModel >
+                    <option value="user" >User</option>
+                    <option value="admin">Admin</option>
+                </select>
+            </div>
+            <div *ngIf="newRole.touched && newRole.invalid && newRole.hasError">
+                <div *ngIf="newRole.errors">Role required</div>
+            </div>
+            <p class="error" *ngIf="error">{{errorMessage}}</p>
+            <div class="d-flex justify-content-end">
+                <button (click)="cancel()" class="btn btn-danger"  type="button">Cancel</button>
+                <button [disabled]="modifyF.invalid" type="submit" class="btn btn-primary" >Modify</button>
+              </div>
+        </div>
+    </div>
+</form>

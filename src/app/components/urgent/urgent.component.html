@@ -1,0 +1,18 @@
+<div class="over">
+    <table class="table table-striped text-center">
+        <thead>
+            <tr>
+                <th scope="col ">Cate</th>
+                <th scope="col">Status</th>
+                <th scope="col" class="w-50">Todo</th>                
+        </thead>
+        <tbody>
+            <tr *ngFor="let do of todos;index as i">
+                <td>{{do.cate}}</td>
+                <td>{{do.status?"Ing...":"DONE"}}</td>
+                <td>{{do.detail}}</td>
+
+            </tr>
+        </tbody>
+    </table>
+</div>

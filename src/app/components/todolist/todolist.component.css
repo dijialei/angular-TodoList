@@ -1,0 +1,9 @@
+table{
+    width: 800px;
+    height: 200px;
+}
+.over{
+    overflow: auto;
+    width: 800px;
+    height: 200px;
+}

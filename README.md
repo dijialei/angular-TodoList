@@ -1,3 +1,20 @@
+# angular-TodoList
+Les utilisateurs doivent se connecter pour utiliser le système.
+Nom d'utilisateur : coco 
+Mot de passe : COCO 
+Rôle : Admin 
+Le rôle « Admin » peut ajouter, modifier, supprimer et consulter les utilisateurs, ainsi que ajouter, modifier, supprimer et consulter les TÂCHES DE CHAQUE UTILISATEUR.
+
+Nom d'utilisateur : jaco 
+Mot de passe : JACO 
+Rôle : User 
+Le rôle « User » peut seulement ajouter, modifier, supprimer et consulter ses propres TÂCHES .
+
+Cliquez sur les boutons « status » et « cate » pour changer l'état de l'événement.
+
+
+
+
 # TodolistPerUser
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.0.
