@@ -1,8 +1,8 @@
 # angular-TodoList
 Les utilisateurs doivent se connecter pour utiliser le système.
-Nom d'utilisateur : coco 
-Mot de passe : COCO 
-Rôle : Admin 
+- Nom d'utilisateur : coco 
+- Mot de passe : COCO 
+- Rôle : Admin 
 Le rôle « Admin » peut ajouter, modifier, supprimer et consulter les utilisateurs, ainsi que ajouter, modifier, supprimer et consulter les TÂCHES DE CHAQUE UTILISATEUR.
 
 Nom d'utilisateur : jaco 
